@@ -29,9 +29,10 @@ writexl::write_xlsx(output_df, "updated-gto-output.xlsx")
 
 
 # Analysis section --------------------
+# Constants
+pot.size <- 55
 
 # Counts of Flops
-
 # Full House
 output_df |> 
   count(fullhouse, sort = TRUE)
@@ -46,6 +47,8 @@ output_df |>
     n = n(),
     equity = sum(`Equity(*)` * variants) / sum(variants),
     ev = sum(EV * variants) / sum(variants),
+    ev.pct = 100 * ev / pot.size,
+    eqr =  ev.pct / equity,
     bet_shove = sum(`Bet 180` * variants) / sum(variants),
     bet_2e = sum(`Bet 48` * variants) / sum(variants),
     bet_large = sum(`Bet 38` * variants) / sum(variants),
@@ -67,6 +70,8 @@ output_df |>
     n = n(),
     equity = sum(`Equity(*)` * variants) / sum(variants),
     ev = sum(EV * variants) / sum(variants),
+    ev.pct = 100 * ev / pot.size,
+    eqr =  ev.pct / equity,
     bet_shove = sum(`Bet 180` * variants) / sum(variants),
     bet_2e = sum(`Bet 48` * variants) / sum(variants),
     bet_large = sum(`Bet 38` * variants) / sum(variants),
@@ -88,6 +93,8 @@ output_df |>
     n = n(),
     equity = sum(`Equity(*)` * variants) / sum(variants),
     ev = sum(EV * variants) / sum(variants),
+    ev.pct = 100 * ev / pot.size,
+    eqr =  ev.pct / equity,
     bet_shove = sum(`Bet 180` * variants) / sum(variants),
     bet_2e = sum(`Bet 48` * variants) / sum(variants),
     bet_large = sum(`Bet 38` * variants) / sum(variants),
@@ -105,6 +112,8 @@ output_df |>
     n = n(),
     equity = sum(`Equity(*)` * variants) / sum(variants),
     ev = sum(EV * variants) / sum(variants),
+    ev.pct = 100 * ev / pot.size,
+    eqr =  ev.pct / equity,
     bet_shove = sum(`Bet 180` * variants) / sum(variants),
     bet_2e = sum(`Bet 48` * variants) / sum(variants),
     bet_large = sum(`Bet 38` * variants) / sum(variants),
@@ -122,6 +131,8 @@ output_df |>
     n = n(),
     equity = sum(`Equity(*)` * variants) / sum(variants),
     ev = sum(EV * variants) / sum(variants),
+    ev.pct = 100 * ev / pot.size,
+    eqr =  ev.pct / equity,
     bet_shove = sum(`Bet 180` * variants) / sum(variants),
     bet_2e = sum(`Bet 48` * variants) / sum(variants),
     bet_large = sum(`Bet 38` * variants) / sum(variants),
