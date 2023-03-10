@@ -61,6 +61,19 @@ output_df |>
   filter(flush == 'Two-Tone') |> 
   count(`suited-cards`, sort = TRUE)
 
+output_df |> 
+  group_by(flush) |> 
+  summarize(
+    n = n(),
+    equity = sum(`Equity(*)` * variants) / sum(variants),
+    ev = sum(EV * variants) / sum(variants),
+    bet_shove = sum(`Bet 180` * variants) / sum(variants),
+    bet_2e = sum(`Bet 48` * variants) / sum(variants),
+    bet_large = sum(`Bet 38` * variants) / sum(variants),
+    bet_small = sum(`Bet 16.5` * variants) / sum(variants),
+    check = sum(`Check` * variants) / sum(variants)
+  )
+
 # Straight
 output_df |> 
   count(straight, sort = TRUE)
@@ -69,10 +82,49 @@ output_df |>
   filter(straight == 'Straight') |> 
   count(`no-straights`, sort = TRUE)
 
+output_df |> 
+  group_by(straight) |> 
+  summarize(
+    n = n(),
+    equity = sum(`Equity(*)` * variants) / sum(variants),
+    ev = sum(EV * variants) / sum(variants),
+    bet_shove = sum(`Bet 180` * variants) / sum(variants),
+    bet_2e = sum(`Bet 48` * variants) / sum(variants),
+    bet_large = sum(`Bet 38` * variants) / sum(variants),
+    bet_small = sum(`Bet 16.5` * variants) / sum(variants),
+    check = sum(`Check` * variants) / sum(variants)
+  )
+
 # Group
 output_df |> 
   count(group, sort = TRUE)
 
+output_df |> 
+  group_by(group) |> 
+  summarize(
+    n = n(),
+    equity = sum(`Equity(*)` * variants) / sum(variants),
+    ev = sum(EV * variants) / sum(variants),
+    bet_shove = sum(`Bet 180` * variants) / sum(variants),
+    bet_2e = sum(`Bet 48` * variants) / sum(variants),
+    bet_large = sum(`Bet 38` * variants) / sum(variants),
+    bet_small = sum(`Bet 16.5` * variants) / sum(variants),
+    check = sum(`Check` * variants) / sum(variants)
+  )
+
 # Strategy Grouping
 output_df |> 
   count(`strategy-grouping`, sort = TRUE)
+
+output_df |> 
+  group_by(`strategy-grouping`) |> 
+  summarize(
+    n = n(),
+    equity = sum(`Equity(*)` * variants) / sum(variants),
+    ev = sum(EV * variants) / sum(variants),
+    bet_shove = sum(`Bet 180` * variants) / sum(variants),
+    bet_2e = sum(`Bet 48` * variants) / sum(variants),
+    bet_large = sum(`Bet 38` * variants) / sum(variants),
+    bet_small = sum(`Bet 16.5` * variants) / sum(variants),
+    check = sum(`Check` * variants) / sum(variants)
+  )
